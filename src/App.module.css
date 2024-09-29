@@ -1,0 +1,53 @@
+/* src/App.module.css */
+.app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .contentArea {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .leftPanel {
+    flex: 2;
+  }
+  
+  .rightPanel {
+    flex: 1;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  input[type=text], input[type=number], input[type=date], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
