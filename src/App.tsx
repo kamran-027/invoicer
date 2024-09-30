@@ -6,7 +6,6 @@ import InvoiceList from "./components/invoice/InvoiceList";
 import EmailSender from "./components/invoice/EmailSender";
 import StatusUpdater from "./components/invoice/StatusUpdater";
 import LateInvoiceAlert from "./components/invoice/LateInvoiceAlert";
-import styles from "./App.module.css";
 
 const App: React.FC = () => {
   const [editingInvoiceId, setEditingInvoiceId] = useState<string | undefined>(
@@ -28,33 +27,41 @@ const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <div className={`p-5 w-full h-full  bg-blue-100`}>
-        <h1 className="font-mono text-7xl font-extrabold p-5">Invoicing App</h1>
-        <LateInvoiceAlert />
-        <div className={`flex gap-5`}>
-          <div className={`w-1/2 flex flex-col gap-y-4`}>
-            <InvoiceForm editingInvoiceId={editingInvoiceId} />
-            <InvoiceList
-              onEditInvoice={handleEditInvoice}
-              onSelectInvoice={handleSelectInvoice}
-            />
-          </div>
-          <div className={styles.rightPanel}>
-            {selectedInvoiceId && (
-              <>
-                <EmailSender invoiceId={selectedInvoiceId} />
-                <StatusUpdater
-                  invoiceId={selectedInvoiceId}
-                  currentStatus={
-                    store
-                      .getState()
-                      .invoice.invoices.find(
-                        (inv) => inv.id === selectedInvoiceId
-                      )?.status || "outstanding"
-                  }
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 p-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-blue-900 mb-8 text-center">
+            Invoicing App
+          </h1>
+          <LateInvoiceAlert />
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="lg:w-1/2 space-y-8">
+              <div className="bg-white shadow-lg rounded-lg p-6">
+                <InvoiceForm editingInvoiceId={editingInvoiceId} />
+              </div>
+              <div className="bg-white shadow-lg rounded-lg p-6">
+                <InvoiceList
+                  onEditInvoice={handleEditInvoice}
+                  onSelectInvoice={handleSelectInvoice}
                 />
-              </>
-            )}
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              {selectedInvoiceId && (
+                <div className="bg-white shadow-lg rounded-lg p-6 space-y-6">
+                  <EmailSender invoiceId={selectedInvoiceId} />
+                  <StatusUpdater
+                    invoiceId={selectedInvoiceId}
+                    currentStatus={
+                      store
+                        .getState()
+                        .invoice.invoices.find(
+                          (inv) => inv.id === selectedInvoiceId
+                        )?.status || "outstanding"
+                    }
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
