@@ -11,7 +11,8 @@ const LateInvoiceAlert: React.FC = () => {
 
   return (
     <div
-      style={{ backgroundColor: "#ffcccc", padding: "10px", margin: "10px 0" }}
+      // style={{ backgroundColor: "#ffcccc", padding: "10px", margin: "10px 0" }}
+      className="bg-yellow-300 p-2"
     >
       <h3>Late Invoices Alert</h3>
       <ul>

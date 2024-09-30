@@ -78,13 +78,15 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ editingInvoiceId }) => {
       <input
         type="text"
         value={customer}
-        onChange={(e) => setCustomer(e.target.value)}
+        onChange={(e: any) => setCustomer(e.target.value)}
         placeholder="Customer Name"
         required
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
       />
       {lineItems.map((item, index) => (
         <div key={item.id}>
           <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             type="text"
             value={item.description}
             onChange={(e) =>
@@ -94,6 +96,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ editingInvoiceId }) => {
             required
           />
           <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             type="number"
             value={item.quantity}
             onChange={(e) =>
@@ -103,6 +106,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ editingInvoiceId }) => {
             required
           />
           <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             type="number"
             value={item.rate}
             onChange={(e) =>
@@ -117,6 +121,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ editingInvoiceId }) => {
         Add Line Item
       </button>
       <textarea
+        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         placeholder="Notes"

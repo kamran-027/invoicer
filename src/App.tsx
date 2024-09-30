@@ -28,11 +28,11 @@ const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <div className="bg-red-300">
-        <h1>Invoicing App</h1>
+      <div className={`p-5 w-full h-full  bg-blue-100`}>
+        <h1 className="font-mono text-7xl font-extrabold p-5">Invoicing App</h1>
         <LateInvoiceAlert />
-        <div className={styles.contentArea}>
-          <div className={styles.leftPanel}>
+        <div className={`flex gap-5`}>
+          <div className={`w-1/2 flex flex-col gap-y-4`}>
             <InvoiceForm editingInvoiceId={editingInvoiceId} />
             <InvoiceList
               onEditInvoice={handleEditInvoice}
