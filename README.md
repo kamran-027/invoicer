@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Invoicing App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based invoicing application built as part of the Frontend Developer assignment for Seed. It allows users to create and manage invoices, including features like adding line items, notes, and viewing invoice statuses.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Create New Invoice**: Easily create a new invoice for any work or project.
+- **Add Line Items**: Add various line items to an invoice, such as:
+  - Hours of work at a certain rate
+  - Work-related expenses (materials, labor, etc.)
+- **Invoice Notes**: Include additional notes, such as payment methods or check mailing instructions.
+- **View Invoices**: View a list of invoices with their respective statuses (Paid, Outstanding, Late).
+- **Send Invoices**: Functionality to simulate sending invoices via email (email sending not fully implemented).
 
-## Expanding the ESLint configuration
+### Extra Credit Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Due Date for Invoices**: Option to add a due date to invoices.
+- **Late Invoice Alerts**: Identify and flag invoices that are overdue.
+- **Highly Reusable Components**: The app architecture emphasizes component reusability across various parts of the UI.
+- **Polished UX**: Smooth and intuitive user experience.
+- **Tests**: Test coverage to ensure stability and reliability of the app.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: For building the user interface.
+- **Redux**: To manage state across the application.
+- **Webpack**: For bundling and running the development server.
+- **Babel**: For transpiling ES6/7 syntax.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation and Setup
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd invoicing-app
+   ```
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run Server**:
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Conclusion
+
+This invoicing app demonstrates core front-end development skills using modern web technologies such as React and Redux. It highlights component reusability, efficient state management, and a polished user experience.
